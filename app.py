@@ -7,7 +7,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from agents import run_onboarding_audit, ValidationResult
+from agents import ValidationResult
 from utils import extract_and_detect_type
 
 # ---------------------------------------------------------------------------
