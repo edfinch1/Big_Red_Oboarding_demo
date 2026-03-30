@@ -288,12 +288,15 @@ elif selected_page == "Listing Management":
                     
                     res_col_l, res_col_r = st.columns(2)
                     
+                    # Target Color Logic
+                    score_color = "#10B981" if result.seo_score >= 80 else "#F59E0B" if result.seo_score >= 50 else "#DC2626"
+                    
                     with res_col_l:
                         st.markdown(
                             f"""
                             <div class="result-card">
                                 <h3>SEO Score</h3>
-                                <div style="text-align:center; font-size:3rem; font-weight:800; color:#DC2626;">
+                                <div style="text-align:center; font-size:3rem; font-weight:800; color:{score_color};">
                                     {result.seo_score}/100
                                 </div>
                             </div>
@@ -311,6 +314,9 @@ elif selected_page == "Listing Management":
                             """,
                             unsafe_allow_html=True,
                         )
+                    
+                    if result.missing_elements:
+                        st.warning(f"⚠️ Missing Elements: {', '.join(result.missing_elements)}")
 
                 except Exception as e:
                     st.error(f"Error: {e}")
