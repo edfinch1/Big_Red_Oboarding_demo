@@ -1,5 +1,13 @@
-streamlit>=1.30.0
+# Core AI Engine
 openai>=1.0.0
-PyMuPDF>=1.24.0
 pydantic>=2.0.0
-python-dotenv>=1.0.0
+python-dotenv
+
+# Frontend & Deployment
+streamlit
+numpy
+
+# PDF Processing
+pymupdf
+# reportlab (Only for generator, not needed for base app)
+# Pillow (Only for generator, not needed for base app)
