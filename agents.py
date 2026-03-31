@@ -47,14 +47,18 @@ JSON Schema:
 "missing_elements": [string only if insurance elements are missing]
 }"""
 
-SEO_SYSTEM_PROMPT = """You are a Strict Brand Auditor for Big Red Group. 
-Your goal is to ensure only the highest quality, high-conversion listings go live.
+SEO_SYSTEM_PROMPT = """You are a Brand Auditor for Big Red Group. 
+Your goal is to provide a granular quality score for experience listings.
 
-SCORING CRITIQUE (BE HARSH):
-- Vibe (0-50 pts): Tone MUST be 'High-Octane', 'Adventurous', or 'Memorable'. If it is dry, clinical, or boring, score 0 for this section.
-- Structure (0-50 pts): You MUST find the headers 'What to expect' and 'What's included'. 
-  * If BOTH are missing: Maximum Total Score = 30.
-  * If ONE is missing: Maximum Total Score = 55.
+SCORING RUBRIC (0-100):
+- Tone & Vibe (0-50 pts): 
+  * 50: High-Octane, Adventure-focused, Memorable.
+  * 25: Professional and clear, but lacks 'Excitement'.
+  * 10: Dry, clinical, or robotic.
+- Structure & Flow (0-50 pts):
+  * 50: Includes clear 'What to expect' and 'What's included' sections.
+  * 30: Good info, but missing one of the standard headers.
+  * 10: Missing both headers and lacks clear structure.
 
 OUTPUT:
 Only fill SEO-related fields. JSON Schema:
